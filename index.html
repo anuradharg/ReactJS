@@ -20,15 +20,31 @@
         name: 'Ryu',
         age: 25
       }
-        render() {
-          return (
-            <div className="app-content">
-              <h1>Hello World!</h1>
-              <p> Name is { this.state.name }, age is {this.state.age} </p>
-            </div>
-          )
-        }
+
+      handleClick(e) {
+        console.log(e.target);
       }
+
+      handleMouseOver(e){
+        console.log(e.target, e.pageX);
+      }
+
+      handleCopy(e){
+        console.log('Copy is not allowed');
+      }
+
+    render() {
+        return (
+          <div className="app-content">
+            <h1>Hello World!</h1>
+            <p> Name is { this.state.name }, age is {this.state.age} </p>
+            <button onClick={ this.handleClick }>Click me</button>
+            <button onMouseOver = { this.handleMouseOver } >Hover me!</button>
+            <p onCopy = {this.handleCopy}> Copy me! </p>
+          </div>
+        )
+      }
+    }
 
       ReactDOM.render(<App />, document.getElementById("app"));
     </script>
