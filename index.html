@@ -21,30 +21,27 @@
         age: 25
       }
 
-      handleClick = (e) => {
+      handleChange = (e) => {
         this.setState({
-          name: 'Yoshi',
-          age: 10
+          name: e.target.value
         })
-        console.log(this.state);
       }
 
-      handleMouseOver = (e) =>{
-        console.log(e.target, e.pageX);
+	    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form Submitted. ' + this.state.name);
       }
 
-      handleCopy = (e) =>{
-        console.log('Copy is not allowed');
-      }
-
-    render() {
+     render() {
         return (
           <div className="app-content">
-            <h1>Hello World!</h1>
             <p> Name is { this.state.name }, age is {this.state.age} </p>
-            <button onClick={ this.handleClick }>Click me</button>
-            <button onMouseOver = { this.handleMouseOver } >Hover me!</button>
-            <p onCopy = {this.handleCopy}> Copy me! </p>
+            <form onSubmit = { this.handleSubmit } >
+            <input type="text" onChange= { this.handleChange } />
+            <button>Submit</button>
+
+            </form>
+
           </div>
         )
       }
