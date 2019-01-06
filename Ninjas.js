@@ -1,7 +1,7 @@
 import React from 'react';
 
 //const Ninjas = (props) => { //same as below
-    const Ninjas = ({ninjas}) => {
+    const Ninjas = ({ninjas, deleteNinja}) => {
 
          //const {ninjas} = props; 
 
@@ -30,6 +30,7 @@ import React from 'react';
                <div>Age: { ninja.age }</div>
                <div>Belt: { ninja.belt }</div>
                <br/>
+               <button onClick={() => {deleteNinja(ninja.id)}}>Delete Ninja</button>
            </div>  ) : (null)
         }
        );
